@@ -1,7 +1,6 @@
 import 'package:basic_template/basic_template.dart';
 import 'package:flutter/material.dart';
 import 'package:texol_stock_parser/domain/usecases/get_stock_details.dart';
-import 'package:texol_stock_parser/utils/extensions.dart';
 
 class HomeController extends ChangeNotifier {
   GetStockDetails getStockDetails = GetStockDetails(Get.find());
@@ -26,7 +25,7 @@ class HomeController extends ChangeNotifier {
 
   getData() async {
     final response = await getStockDetails(NoParams());
-    response.fold((l) => l.handleError(), (r) => setData(r));
+    response.fold((l) => appError = l, (r) => setData(r));
     makeNotLoading();
   }
 

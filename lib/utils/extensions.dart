@@ -99,7 +99,9 @@ extension VariableTypeExtension on VariableType {
             title: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Text("RSI"),
+                Text(placeholderValueObject["study_type"]
+                    .toString()
+                    .toUpperCase()),
                 Text(
                   "Set Parameters",
                   style: Theme.of(Get.context!).textTheme.bodyText1,
